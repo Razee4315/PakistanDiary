@@ -95,6 +95,16 @@ nav.scrolled {
     max-width: 100%;
 }
 
+.typewriter {
+    display: inline-block;
+    width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+    padding: 0 10px;
+}
+
 .cta-btn {
     display: inline-block;
     background: white;
@@ -118,10 +128,58 @@ nav.scrolled {
 }
 
 @media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        z-index: 1000;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s ease;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        margin: 20px 0;
+    }
+    
+    .hamburger.active .line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active .line:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    /* Header Adjustments */
     .hero-content h1 {
         font-size: 2rem;
         max-width: 100%;
         padding: 0 10px;
+    }
+    
+    .typewriter {
+        font-size: 2rem;
+        line-height: 1.3;
+        white-space: normal;
+        overflow: visible;
+        width: 100%;
     }
     
     .hero-content p {
@@ -145,6 +203,12 @@ nav.scrolled {
         margin-bottom: 1.5rem;
     }
     
+    .typewriter {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        padding: 0 5px;
+    }
+    
     .cta-btn {
         padding: 10px 20px;
         font-size: 0.85rem;
@@ -156,6 +220,12 @@ nav.scrolled {
 @media screen and (max-width: 375px) {
     .hero-content h1 {
         font-size: 1.6rem;
+        padding: 0 5px;
+    }
+    
+    .typewriter {
+        font-size: 1.6rem;
+        line-height: 1.2;
         padding: 0 5px;
     }
     
@@ -2375,14 +2445,6 @@ body.menu-open {
         font-size: 0.9rem;
     }
     
-    .tour-description h2 {
-        font-size: 1.3rem;
-    }
-    
-    .booking-section h3 {
-        font-size: 1.2rem;
-    }
-    
     .contact-btn, 
     .cta-btn, 
     .promo-btn {
@@ -2447,7 +2509,8 @@ body.menu-open {
     }
 }
 
-/* Mobile Navigation - Fixed */
+/* Remove duplicate mobile navigation rules */
+/* Mobile Navigation */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -2462,6 +2525,27 @@ body.menu-open {
     background-color: white;
     margin: 5px;
     transition: all 0.3s ease;
+}
+
+/* Mobile-specific enhancements */
+body.menu-open {
+    overflow: hidden; /* Prevent scrolling when menu is open */
+}
+
+.touch-device .btn,
+.touch-device .cta-btn,
+.touch-device .contact-btn,
+.touch-device .promo-btn {
+    padding: 12px 25px; /* Larger touch targets */
+}
+
+.touch-device .nav-links li a {
+    padding: 15px; /* Larger touch targets for navigation */
+}
+
+.touch-hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -2842,8 +2926,7 @@ body.menu-open {
     }
 }
 
-/* Remove duplicate mobile navigation rules */
-/* Mobile Navigation */
+/* Mobile Navigation - Fixed */
 .hamburger {
     display: none;
     cursor: pointer;
@@ -2858,27 +2941,6 @@ body.menu-open {
     background-color: white;
     margin: 5px;
     transition: all 0.3s ease;
-}
-
-/* Mobile-specific enhancements */
-body.menu-open {
-    overflow: hidden; /* Prevent scrolling when menu is open */
-}
-
-.touch-device .btn,
-.touch-device .cta-btn,
-.touch-device .contact-btn,
-.touch-device .promo-btn {
-    padding: 12px 25px; /* Larger touch targets */
-}
-
-.touch-device .nav-links li a {
-    padding: 15px; /* Larger touch targets for navigation */
-}
-
-.touch-hover {
-    transform: translateY(-5px) !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
 @media screen and (max-width: 768px) {
