@@ -3,12 +3,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 body {
     font-family: 'Raleway', sans-serif;
     color: white;
     background-color: black;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* Navigation */
@@ -70,17 +75,24 @@ nav.scrolled {
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .hero-content {
     max-width: 90%;
     padding: 0 20px;
+    width: 100%;
 }
 
 .hero-content h1 {
     font-size: 3rem;
     margin-bottom: 2rem;
     color: white;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
 }
 
 .cta-btn {
@@ -92,6 +104,10 @@ nav.scrolled {
     border-radius: 50px;
     font-weight: bold;
     transition: all 0.3s ease;
+    margin: 10px auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 90%;
 }
 
 .cta-btn:hover {
@@ -104,8 +120,14 @@ nav.scrolled {
 @media screen and (max-width: 768px) {
     .hero-content h1 {
         font-size: 2rem;
-        margin-bottom: 1.5rem;
-        word-wrap: break-word;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        max-width: 100%;
+        padding: 0 10px;
     }
     
     .cta-btn {
@@ -119,14 +141,28 @@ nav.scrolled {
 @media screen and (max-width: 480px) {
     .hero-content h1 {
         font-size: 1.8rem;
-        margin-bottom: 1.2rem;
+        padding: 0 10px;
+        margin-bottom: 1.5rem;
     }
     
     .cta-btn {
         padding: 10px 20px;
         font-size: 0.85rem;
-        width: auto;
-        max-width: 90%;
+        max-width: 80%;
+        white-space: normal;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .hero-content h1 {
+        font-size: 1.6rem;
+        padding: 0 5px;
+    }
+    
+    .cta-btn {
+        padding: 10px 18px;
+        font-size: 0.8rem;
+        max-width: 75%;
     }
 }
 
@@ -159,21 +195,25 @@ nav.scrolled {
 
 .destinations-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
     padding: 2rem;
+    max-width: 100%;
 }
 
 .destination-card {
-    background: black;
-    border: 1px solid #333;
+    background-color: #111;
+    border-radius: 8px;
     overflow: hidden;
+    transition: all 0.3s ease;
+    max-width: 100%;
 }
 
 .destination-card img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    max-width: 100%;
 }
 
 .destination-card h3 {
@@ -185,7 +225,7 @@ nav.scrolled {
     display: block;
     text-align: center;
     padding: 0.5rem;
-    background: black;
+    background-color: #111;
     color: white;
     text-decoration: none;
     border: 1px solid white;
@@ -194,8 +234,26 @@ nav.scrolled {
 }
 
 .destination-card .btn:hover {
-    background: white;
+    background-color: white;
     color: black;
+}
+
+@media screen and (max-width: 768px) {
+    .destinations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 100px 20px 50px;
+    }
+    
+    .destination-card {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .destinations-grid {
+        grid-template-columns: 1fr;
+        padding: 80px 15px 40px;
+    }
 }
 
 /* Tours Page */
@@ -259,7 +317,7 @@ nav.scrolled {
 }
 
 .tour-card {
-    background: #111;
+    background-color: #111;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #333;
@@ -293,7 +351,7 @@ nav.scrolled {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: #e74c3c;
+    background-color: #e74c3c;
     color: white;
     padding: 5px 12px;
     border-radius: 50px;
@@ -352,18 +410,18 @@ nav.scrolled {
 .btn {
     display: inline-block;
     padding: 8px 20px;
-    background: transparent;
+    background-color: transparent;
     color: white;
     text-decoration: none;
     border: 2px solid white;
     border-radius: 50px;
-    transition: all 0.3s ease;
     font-weight: 600;
     font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
-    background: white;
+    background-color: white;
     color: black;
     transform: translateY(-3px);
 }
@@ -398,7 +456,7 @@ nav.scrolled {
 .promo-btn {
     display: inline-block;
     padding: 12px 30px;
-    background: white;
+    background-color: white;
     color: black;
     text-decoration: none;
     border-radius: 50px;
@@ -407,7 +465,7 @@ nav.scrolled {
 }
 
 .promo-btn:hover {
-    background: transparent;
+    background-color: transparent;
     color: white;
     border: 2px solid white;
     transform: translateY(-5px);
@@ -444,7 +502,7 @@ nav.scrolled {
 }
 
 .feature-card {
-    background: #111;
+    background-color: #111;
     padding: 30px;
     border-radius: 8px;
     border: 1px solid #333;
@@ -460,7 +518,7 @@ nav.scrolled {
 .feature-icon {
     width: 60px;
     height: 60px;
-    background: #0a0a0a;
+    background-color: #0a0a0a;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -536,7 +594,7 @@ nav.scrolled {
 }
 
 .tour-content {
-    background: #111;
+    background-color: #111;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #333;
@@ -558,7 +616,7 @@ nav.scrolled {
     display: flex;
     justify-content: space-around;
     padding: 30px;
-    background: #0a0a0a;
+    background-color: #0a0a0a;
     border-bottom: 1px solid #333;
 }
 
@@ -571,7 +629,7 @@ nav.scrolled {
 .info-icon {
     width: 50px;
     height: 50px;
-    background: #222;
+    background-color: #222;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -652,7 +710,7 @@ nav.scrolled {
 }
 
 .day-number {
-    background: #222;
+    background-color: #222;
     color: white;
     padding: 10px 15px;
     border-radius: 4px;
@@ -716,7 +774,7 @@ nav.scrolled {
 }
 
 .booking-section {
-    background: #0a0a0a;
+    background-color: #0a0a0a;
     padding: 40px;
     text-align: center;
     border-top: 1px solid #333;
@@ -738,7 +796,7 @@ nav.scrolled {
 .contact-btn {
     display: inline-block;
     padding: 15px 30px;
-    background: #25D366;
+    background-color: #25D366;
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -748,7 +806,7 @@ nav.scrolled {
 }
 
 .contact-btn:hover {
-    background: #128C7E;
+    background-color: #128C7E;
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
@@ -768,7 +826,7 @@ nav.scrolled {
 }
 
 .booking-info {
-    background: #0a0a0a;
+    background-color: #0a0a0a;
     padding: 25px;
     border-radius: 8px;
     margin-bottom: 40px;
@@ -877,7 +935,7 @@ nav.scrolled {
 
 .vehicle-card {
     display: flex;
-    background: #111;
+    background-color: #111;
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #333;
@@ -949,7 +1007,7 @@ nav.scrolled {
 }
 
 .vehicle-features span {
-    background: #222;
+    background-color: #222;
     color: white;
     padding: 5px 12px;
     border-radius: 50px;
@@ -964,7 +1022,7 @@ nav.scrolled {
 }
 
 .info-card {
-    background: #111;
+    background-color: #111;
     padding: 30px;
     border-radius: 8px;
     border: 1px solid #333;
@@ -973,7 +1031,7 @@ nav.scrolled {
 .info-icon {
     width: 60px;
     height: 60px;
-    background: #0a0a0a;
+    background-color: #0a0a0a;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1036,7 +1094,7 @@ nav.scrolled {
 .cta-btn {
     display: inline-block;
     padding: 12px 30px;
-    background: white;
+    background-color: white;
     color: black;
     text-decoration: none;
     border-radius: 50px;
@@ -1045,7 +1103,7 @@ nav.scrolled {
 }
 
 .cta-btn:hover {
-    background: transparent;
+    background-color: transparent;
     color: white;
     border: 2px solid white;
     transform: translateY(-5px);
@@ -1105,7 +1163,7 @@ nav.scrolled {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1126,7 +1184,7 @@ nav.scrolled {
 }
 
 .gallery-item .overlay a:hover {
-    background: white;
+    background-color: white;
     color: black;
 }
 
@@ -1141,7 +1199,7 @@ nav.scrolled {
 }
 
 .contact-info {
-    background: #111;
+    background-color: #111;
     padding: 2.5rem;
     border: 1px solid #333;
     border-radius: 8px;
@@ -1184,7 +1242,7 @@ nav.scrolled {
 }
 
 .contact-icon {
-    background: #222;
+    background-color: #222;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -1218,7 +1276,7 @@ nav.scrolled {
 }
 
 .social-icon {
-    background: #222;
+    background-color: #222;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -1230,7 +1288,7 @@ nav.scrolled {
 }
 
 .social-icon:hover {
-    background: #333;
+    background-color: #333;
     transform: translateY(-3px);
 }
 
@@ -1238,7 +1296,7 @@ nav.scrolled {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.8rem 1.5rem;
-    background: #25D366;
+    background-color: #25D366;
     color: white;
     text-decoration: none;
     border-radius: 50px;
@@ -1247,7 +1305,7 @@ nav.scrolled {
 }
 
 .whatsapp-btn:hover {
-    background: #128C7E;
+    background-color: #128C7E;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
@@ -1291,7 +1349,7 @@ nav.scrolled {
 .business-hours {
     max-width: 600px;
     margin: 0 auto 50px;
-    background: #111;
+    background-color: #111;
     padding: 30px;
     border-radius: 8px;
     border: 1px solid #333;
@@ -1337,7 +1395,7 @@ nav.scrolled {
 .map-container {
     display: flex;
     flex-direction: column;
-    background: #111;
+    background-color: #111;
     border: 1px solid #333;
     border-radius: 8px;
     overflow: hidden;
@@ -2455,12 +2513,29 @@ body.menu-open {
         transform: rotate(-45deg) translate(5px, -5px);
     }
     
-    /* Fix content overflow issues */
-    main {
-        width: 100%;
-        overflow-x: hidden;
-        padding: 0 15px;
-        box-sizing: border-box;
+    /* Header Adjustments */
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    /* Stats Section */
+    .stats-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    /* Featured Packages */
+    .featured-packages {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Why Choose Us */
+    .features {
+        grid-template-columns: 1fr;
     }
     
     /* Fix tour detail page */
@@ -2506,6 +2581,10 @@ body.menu-open {
     }
     
     /* Fix transport page */
+    .vehicle-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .vehicle-card {
         flex-direction: column;
     }
@@ -2530,6 +2609,14 @@ body.menu-open {
     
     .map-container {
         height: 300px;
+    }
+    
+    .contact-info {
+        order: -1;
+    }
+    
+    .social-links {
+        justify-content: center;
     }
     
     /* Fix tours page */
@@ -2586,10 +2673,65 @@ body.menu-open {
         max-width: 100%;
         height: auto;
     }
+    
+    /* Improve form elements on mobile */
+    input, 
+    textarea, 
+    select, 
+    button {
+        font-size: 16px; /* Prevent zoom on focus in iOS */
+    }
+    
+    .page-header {
+        padding: 60px 20px 30px;
+    }
+    
+    .header-underline {
+        margin: 15px auto;
+    }
+    
+    .page-header p {
+        font-size: 0.9rem;
+    }
+    
+    /* Adjust padding for better mobile experience */
+    .section-padding {
+        padding: 40px 20px;
+    }
+    
+    /* Improve spacing on mobile */
+    .tour-card,
+    .vehicle-card,
+    .info-card,
+    .featured-card {
+        margin-bottom: 20px;
+    }
+    
+    /* Adjust footer on mobile */
+    .footer-top {
+        padding: 40px 20px;
+    }
+    
+    .footer-bottom {
+        padding: 20px;
+    }
+    
+    /* Gallery adjustments */
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
 }
 
-/* Extra small devices */
 @media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
     .tour-header h1, 
     .page-header h1 {
         font-size: 1.5rem;
@@ -2599,19 +2741,6 @@ body.menu-open {
     .tour-breadcrumbs {
         padding: 0 10px;
         font-size: 0.8rem;
-    }
-    
-    .info-item {
-        padding: 10px;
-    }
-    
-    .info-icon {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .info-item h4 {
-        font-size: 0.9rem;
     }
     
     .tour-description h2 {
@@ -2634,6 +2763,82 @@ body.menu-open {
     
     .booking-section h3 {
         font-size: 1.2rem;
+    }
+    
+    .info-item {
+        padding: 10px;
+    }
+    
+    .info-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .info-item h4 {
+        font-size: 0.9rem;
+    }
+    
+    .contact-btn, 
+    .cta-btn, 
+    .promo-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .info-card {
+        padding: 20px;
+    }
+    
+    .info-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .vehicle-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .vehicle-features {
+        justify-content: center;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 375px) {
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+    }
+    
+    .tour-header h1, 
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    /* Reduce padding further */
+    .section-padding {
+        padding: 30px 15px;
+    }
+    
+    /* Adjust buttons */
+    .btn, .cta-btn, .contact-btn, .promo-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Smaller margins */
+    .vehicle-card,
+    .tour-card,
+    .info-card {
+        margin-bottom: 15px;
+    }
+    
+    /* Smaller padding */
+    .vehicle-content,
+    .tour-content {
+        padding: 15px;
     }
 }
 
@@ -2810,10 +3015,6 @@ body.menu-open {
         height: 200px;
     }
     
-    .transport-info {
-        grid-template-columns: 1fr;
-    }
-    
     /* Fix contact page */
     .contact-content {
         grid-template-columns: 1fr;
@@ -2842,10 +3043,6 @@ body.menu-open {
     
     .tour-card {
         margin-bottom: 20px;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
     }
     
     /* Fix footer */
